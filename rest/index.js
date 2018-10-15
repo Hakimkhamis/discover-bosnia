@@ -1,11 +1,9 @@
 var express = require('express');
 
 var app = express();
-var port = 3000 || process.env.PORT;
+var port = process.env.PORT || 3000;
 
-app.get('/', function (req,res) {
-    res.status(200).send('Hello from new app for web.')
-})
+app.use(express.static('lingua'))
 
 app.listen(port, function(){
     console.log('server is listening on port ' + port)
