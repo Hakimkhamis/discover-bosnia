@@ -17,6 +17,5 @@ And once they enter the information and click  the batten, there will be a messa
 And once we arrange the price, the admin will be able to enter the price and other details manually and the user will be able to see those details once he logs in.
 Also the user can read about our services and cities information even without login or Registration.
 the admin will be able to add, delete, update, the (posts, user, trips).
-..............
 
 
