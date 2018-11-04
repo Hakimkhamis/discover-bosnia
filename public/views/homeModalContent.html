@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{modal.city.name}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="row">
+        <div class="col-md-4">
+            <div><img class="imageClass" src="{{modal.city.image}}" alt="https://unsplash.com/@sgabriel"></div>
+
+        </div>
+        <div class="col-md-8">
+            <ul>
+                {{modal.city.description}}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="modal.ok()">Close</button>
+</div>

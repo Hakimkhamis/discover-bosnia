@@ -76,11 +76,10 @@
             <div ng-repeat="city in cities" class="col-lg-3 col-md-6 top_col">
 
                 <!-- Top Destination Item -->
-                <div class="top_item">
-                    <a href="#">
+                <div ng-controller="modalController as modal" class="top_item">
+                    <a ng-click="modal.open(city.name, city.description, city.image, 'lg')">
                         <div class="top_item_image"><img src="{{city.image}}" alt="https://unsplash.com/@sgabriel"></div>
                         <div class="top_item_content">
-                            <div class="top_item_price">{{city.price}} BAM</div>
                             <div class="top_item_text">{{city.name}}</div>
                         </div>
                     </a>
