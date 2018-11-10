@@ -6,33 +6,9 @@ app.config(function ($routeProvider) {
     }).when("/offers", {
         templateUrl: "views/offers.html",
         activeTab: "offers"
-    })
-
-
-})
-
-
-
-
-app.config(function ($routeProvider) {
-    $routeProvider.when("/", {
-        templateUrl: "views/news.html",
-        activeTab: "home"
     }).when("/news", {
         templateUrl: "views/news.html",
         activeTab: "news"
-    })
-
-
-})
-
-
-
-
-app.config(function ($routeProvider) {
-    $routeProvider.when("/", {
-        templateUrl: "views/contact.html",
-        activeTab: "home"
     }).when("/contact", {
         templateUrl: "views/contact.html",
         activeTab: "contact"
@@ -40,11 +16,6 @@ app.config(function ($routeProvider) {
 
 
 })
-
-
-
-
-
 
 app.controller('cityController', cityController)
 app.controller('linksController', linksController)
