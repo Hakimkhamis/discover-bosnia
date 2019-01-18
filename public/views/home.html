@@ -89,7 +89,7 @@
     </div>
 </div>
 
-<!-- Popular -->
+<!-- Popular 
 
 <div class="popular">
     <div class="container">
@@ -105,7 +105,7 @@
             <div class="col">
                 <div class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
 
-                    <!-- Popular Item -->
+                     Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_1.jpg" alt="image by Egzon Bytyqi">
@@ -116,7 +116,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                   Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_2.jpg" alt="https://unsplash.com/@michael75">
@@ -127,7 +127,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                   Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_3.jpg" alt="https://unsplash.com/@sapegin">
@@ -138,7 +138,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                     Popular Item
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_4.jpg" alt="https://unsplash.com/@kensuarez">
@@ -149,7 +149,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                     Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_5.jpg" alt="https://unsplash.com/@noahbasle">
@@ -160,7 +160,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                    Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_6.jpg" alt="https://unsplash.com/@seb">
@@ -171,7 +171,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                     Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_7.jpg" alt="https://unsplash.com/@nevenkrcmarek">
@@ -182,7 +182,7 @@
                         </a>
                     </div>
 
-                    <!-- Popular Item -->
+                     Popular Item 
                     <div class="popular_item">
                         <a href="offers.html">
                             <img src="images/popular_8.jpg" alt="https://unsplash.com/@bergeryap87">
@@ -199,9 +199,9 @@
     </div>
 </div>
 
-<!-- Special -->
+ Special -->
 
-<div class="special">
+<div class="special" ng-controller="specialoffersController">
     <div class="container">
         <div class="row">
             <div class="col">
@@ -212,70 +212,58 @@
             </div>
         </div>
     </div>
+    <div class="top" ng-controller="cityController">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title text-center">
+                    <h2>Top destinations in Bosnia</h2>
+                    <div>take a look at these offers</div>
+                </div>
+            </div>
+        </div>
+        <div class="row top_content">
+
+            <div ng-repeat="city in cities" class="col-lg-3 col-md-6 top_col">
+
+                <!-- Top Destination Item -->
+                <div ng-controller="modalController as modal" class="top_item">
+                    <a ng-click="modal.open(city.name, city.description, city.image, 'lg')">
+                        <div class="top_item_image"><img src="{{city.image}}" alt="https://unsplash.com/@sgabriel"></div>
+                        <div class="top_item_content">
+                            <div class="top_item_text">{{city.name}}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="special_content">
-        <div class="special_slider_container">
-            <div class="owl-carousel owl-theme special_slider">
+        <div   class="special_slider_container">
+            <div ng-repeat="specialoffers in specialoffers" class="owl-carousel owl-theme special_slider">
 
                 <!-- Special Offers Item -->
                 <div class="owl-item">
                     <div class="special_item">
-                        <div class="special_item_background"><img src="images/special_1.jpg" alt="https://unsplash.com/@garciasaldana_"></div>
+                        <div class="special_item_background"><img ng-src="{{specialoffers.image}}" alt="https://unsplash.com/@garciasaldana_"></div>
                         <div class="special_item_content text-center">
-                            <div class="special_category">Visiting</div>
-                            <div class="special_title"><a href="offers.html">Indonesia</a></div>
+                            <div class="special_category">{{specialoffers.name}}</div>
+                            <div class="special_title"><a href="offers.html">{{specialoffers.booknow}}</a></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Special Offers Item -->
-                <div class="owl-item">
-                    <div class="special_item d-flex flex-column align-items-center justify-content-center">
-                        <div class="special_item_background"><img src="images/special_2.jpg" alt="https://unsplash.com/@varshesh"></div>
-                        <div class="special_item_content text-center">
-                            <div class="special_category">Culture</div>
-                            <div class="special_title"><a href="offers.html">India</a></div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Special Offers Item -->
-                <div class="owl-item">
-                    <div class="special_item d-flex flex-column align-items-center justify-content-center">
-                        <div class="special_item_background"><img src="images/special_3.jpg" alt="https://unsplash.com/@paulgilmore_"></div>
-                        <div class="special_item_content text-center">
-                            <div class="special_category">Sunbathing</div>
-                            <div class="special_title"><a href="offers.html">Thailand</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Special Offers Item -->
-                <div class="owl-item">
-                    <div class="special_item d-flex flex-column align-items-center justify-content-center">
-                        <div class="special_item_background"><img src="images/special_4.jpg" alt="https://unsplash.com/@hellolightbulb"></div>
-                        <div class="special_item_content text-center">
-                            <div class="special_category">Visiting</div>
-                            <div class="special_title"><a href="offers.html">Bali</a></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Special Offers Item -->
-                <div class="owl-item">
-                    <div class="special_item d-flex flex-column align-items-center justify-content-center">
-                        <div class="special_item_background"><img src="images/special_5.jpg" alt="https://unsplash.com/@dnevozhai"></div>
-                        <div class="special_item_content text-center">
-                            <div class="special_category">Visiting</div>
-                            <div class="special_title"><a href="offers.html">France</a></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="special_slider_nav d-flex flex-column align-items-center justify-content-center">
-                <img src="images/special_slider.png" alt="">
             </div>
         </div>
+
     </div>
+
+    <div class="special_slider_nav d-flex flex-column align-items-center justify-content-center">
+        <img src="images/special_slider.png" alt="">
+    </div>
+</div>
+</div>
 </div>
