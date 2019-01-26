@@ -38,6 +38,11 @@ app.get("/specialoffers", function (req, res) {
 
 })
 
+
+
+
+
+
 app.post("/login", function (req, res) {
     db.collection("users").findOne({ "email": req.body.email, "password": req.body.password }, function(error, user) {
         if (error) {
@@ -56,6 +61,43 @@ app.post("/login", function (req, res) {
         }
     })
 });
+
+
+
+app.post('/register', function(req, res, next) {
+    req.body.type = "user";
+    req.body._id = null;
+    var user = req.body;
+    var find = req.body.email;
+    console.log(find);
+    bcrypt.hash(user.password, salt, null, function(err, hash) {
+      if (err) {
+        throw err
+        
+      }
+      user.password = hash;
+      db.users.find({
+        email: find
+      }).toArray(function(err, result) {
+        if (err) throw err;
+  
+        console.log(result);
+  
+        if (result.length > 0) {
+          res.sendStatus(204);
+        } else {
+          db.users.insert(user, function(err, data) {
+            if (err) return console.log(err);
+            res.setHeader('Content-Type', 'application/json');
+            res.send(user);
+          })
+        }
+      })
+    })
+  })
+
+
+
 
 
 

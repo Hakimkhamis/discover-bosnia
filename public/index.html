@@ -47,10 +47,18 @@
 									<li ng-class="{active: $route.current.activeTab == 'offers'}" class="main_nav_item"><a href="#!offers">Offers</a></li>
 									<li ng-class="{active: $route.current.activeTab == 'news'}" class="main_nav_item"><a href="#!news">News</a></li>
 									<li ng-class="{active: $route.current.activeTab == 'contact'}" class="main_nav_item"><a href="#!contact">Contact</a></li>
+									<!--	<li ng-class="{active: $route.current.activeTab == 'register'}" class="main_nav_item"><a href="#!register">Register</a></li> -->
 									<li ng-controller="loginController" class="main_nav_item">
 										<a ng-show="isHidden()" ng-click="open()" href="javascript:;">Log in</a>
 										<a ng-show="!isHidden()" ng-click="logout()" href="#!">Log out</a>
 									</li>
+
+									<li ng-controller="registerController" class="main_nav_item">
+											<a ng-show="isHidden()" ng-click="open()" href="javascript:;">Register</a>
+											<a ng-show="!isHidden()" ng-click="logout()" href="#!">Log out</a>
+	
+										</li>
+									
 								</ul>
 							</nav>
 
@@ -151,9 +159,8 @@
 									<div class="logo_image"><img src="images/logo.png" alt=""></div>
 								</div>
 							</div>
-							<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed
-								mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies
-								enim eu quam fermentum hendrerit.</div>
+							<div class="footer_about_text">Discover Bosnia is a travel company that specializes in creating unique adventures to destinations around the Bosnia and Herzegovina. Our clients include corporate clients planning incentive travel, 
+								honeymooners and couples planning a destination wedding and discerning adults looking for the ultimate travel experience..</div>
 							<div class="copyright">
 								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;
@@ -184,7 +191,7 @@
 									<div class="footer_latest_image"><img src="images/latest_2.jpg" alt="https://unsplash.com/@sanfrancisco"></div>
 									<div class="footer_latest_item_content">
 										<div class="footer_latest_item_title"><a href="news.html">A perfect vacation</a></div>
-										<div class="footer_latest_item_date">Jan 09, 2018</div>
+										<div class="footer_latest_item_date">Jan 09, 2019</div>
 									</div>
 								</div>
 
@@ -201,7 +208,7 @@
 								<li class="tag"><a href="#">summer</a></li>
 								<li class="tag"><a href="#">cruise</a></li>
 								<li class="tag"><a href="#">beach</a></li>
-								<li class="tag"><a href="#">offer</a></li>
+								<li class="tag"><a href="#!offers">offer</a></li>
 								<li class="tag"><a href="#">vacation</a></li>
 								<li class="tag"><a href="#">trip</a></li>
 								<li class="tag"><a href="#">city break</a></li>
@@ -228,6 +235,8 @@
 	<script src="js/controllers/modalController.js"></script>
 	<script src="js/controllers/specialoffersController.js"></script>
 	<script src="js/controllers/loginController.js"></script>
+	<script src="js/controllers/registerController.js"></script>
+
 	<script src="js/app.js"></script>>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="styles/bootstrap4/popper.js"></script>

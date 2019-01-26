@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin Dashboards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--icons-css-->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!--Google Fonts-->
+    <link href="//fonts.googleapis.com/css?family=Carrois+Gothic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="left-content">
+            <div class="mother-grid-inner">
+                <!--header start here-->
+                <div class="header-main">
+                    <div class="header-left">
+                        <div class="logo-name">
+                            <a href="#!userPage">
+                                <h1>BTT</h1>
+                            </a>
+                        </div>
+                        <!--search-box-->
+                        <div class="search-box">
+                            <form>
+                                <input type="text" placeholder="Search..." required="" ng-model="search">
+                                <input type="submit" value="">
+                            </form>
+                        </div>
+                        <!--//end-search-box-->
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="profile_details">
+                        <ul>
+                            <li class="profile_details_drop">
+                                <div class="profile_img">
+                                    <p>
+                                        <!-- <a href="#/!">Logout</a> -->
+                                        <span ng-if="check_admin()" style="list-style:none"><a href="#" class="button style" data-hover="Logout"  ng-click="logout()">Logout</a></span>
+                                    </p>
+                                    <div class="user-name" ng-if="check_admin()">
+                                        <!-- <p>Admin name</p> -->
+                                        <span>Administrator</span>
+                                    </div>
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <!--header end here-->
+
+
+
+            <!--inner block start here-->
+            <div class="inner-block">
+                <div class="popeye-modal-container" ng-show="visible">
+                    <div class="popeye-modal">
+                        <a class="popeye-close-modal" href ng-click="close()"></a>
+                        <form name="tourForm" novalidate>
+                            <div style="margin-bottom: 20px; margin-left:35%">
+                                <input type="text" placeholder="Tour name..." class="form-control" style="width: 350px" required id="tourName" name="tourName"
+                                    ng-model="tour.tourName">
+                                <span style="color:red" ng-show="tourForm.tourName.$untouched ||tourForm.tourName.$error.required">Tour name is required</span>
+                                <br>
+                                <input type="text" placeholder="Tour city..." class="form-control" style="width: 350px" id="tourCity" name="tourCity" ng-model="tour.tourCity" required>
+                                <span style="color:red" ng-show="tourForm.tourCity.$untouched ||tourForm.tourCity.$error.required">Tour city is required</span>
+                                <br>
+                                <input type="text" placeholder="Tour description..." class="form-control" style="width: 350px" id="tourDescription" name="tourDescription"
+                                    ng-model="tour.tourDescription" required>
+                                <span style="color:red" ng-show="tourForm.tourDescription.$untouched ||tourForm.tourDescription.$error.required">Tour description is required</span>
+                                <br>
+                                <input type="text" placeholder="Tour image..." class="form-control" style="width: 350px" id="tourImage" name="tourImage"
+                                    ng-model="tour.tourImage" required>
+                                <span style="color:red" ng-show="tourForm.tourImage.$untouched ||tourForm.tourImage.$error.required">Tour image is required</span>
+                                <br>
+                                <input type="button" value="Add" class="btn btn-success" ng-click="addTour(); close()" ng-disabled="tourForm.tourName.$untouched ||tourForm.tourName.$error.required &&  tourForm.tourName.$dirty || tourForm.tourCity.$untouched || tourForm.tourCity.$error.required &&  tourForm.tourCity.$dirty || tourForm.tourDescription.$untouched || tourForm.tourDescription.$error.required &&  tourForm.tourDescription.$dirty || tourForm.tourImage.$untouched ||tourForm.tourImage.$error.required &&  tourForm.tourImage.$dirty" >
+                                <input type="button" value="Update" class="btn btn-warning" ng-click="update(); close()" ng-disabled="tourForm.tourName.$untouched ||tourForm.tourName.$error.required &&  tourForm.tourName.$dirty && tourForm.tourCity.$untouched || tourForm.tourCity.$error.required &&  tourForm.tourCity.$dirty && tourForm.tourDescription.$untouched || tourForm.tourDescription.$error.required &&  tourForm.tourDescription.$dirty && tourForm.tourImage.$untouched ||tourForm.tourImage.$error.required &&  tourForm.tourImage.$dirty">
+                                <input type="button" value="Close" class="btn btn-dark" ng-click="close()">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px; margin-left:45%">
+                    <button class="btn btn-lg btn-success" style="margin-bottom: 20px;" ng-click="open()" ng-if="check_admin()">Add new</button>
+                </div>
+
+                <!--market updates updates-->
+                <div class="market-updates ">
+                    <div class="col-md-6 market-update-gd" ng-if="check_admin()">
+                        <div class="market-update-block clr-block-1 ">
+                            <div class="col-md-8 market-update-left ">
+                                <h3>{{registeredUser}}</h3>
+                                <h4>Registered Users</h4>
+                            </div>
+                            <div class="col-md-4 market-update-right ">
+                                <i class="fa fa-4x fa-users " style="color: white !important "></i>
+                            </div>
+                            <div class="clearfix "> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 market-update-gd " ng-if="check_admin()">
+                        <div class="market-update-block clr-block-2 ">
+                            <div class="col-md-8 market-update-left ">
+                                <h3>{{toursNumber}}</h3>
+                                <h4>Tours</h4>
+                            </div>
+                            <div class="col-md-4 market-update-right ">
+                                <i class="fa fa-4x fa-suitcase " style="color: white !important "></i>
+                            </div>
+                            <div class="clearfix "> </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 market-update-gd " style="margin-top:2% " ng-repeat="x in myWelcome | filter:search"  ng-if="check_admin()">
+                        <div class="market-update-block clr-block-3 ">
+                            <div class="col-md-8 market-update-left ">
+                                <h3>{{x.tourName}}</h3>
+                                <h4>{{x.tourCity}}</h4>
+                                <h2>{{x.rate}}</h2>
+                                <p>{{x.tourDescription}}</p>
+                                <button class="btn btn-warning " ng-click="edit(x._id); open()">Edit</button>
+                                <button class="btn btn-danger " ng-click="deleteTour(x._id) ">Remove</button>
+                            </div>
+                            <div class="col-md-4 market-update-right ">
+                                <i class="fa fa-4x fa-suitcase " style="color: white !important "></i>
+                            </div>
+                            <div class="clearfix "> </div>
+                        </div>
+                    </div>
+                    <div class="clearfix " style="margin-bottom:10px "> </div>
+                </div>
+                <!--market updates end here-->
+
+                <!--copy rights start here-->
+                <div class="copyrights " style="margin-top:10px; ">
+                    <p>© 2018 BTT. All Rights Reserved | Design by ABU
+                    </p>
+                </div>
+                <!--COPY rights end here-->
+            </div>
+        </div>
+        <!--slider menu-->
+        <div class="sidebar-menu ">
+            <div class="menu ">
+                <ul id="menu ">
+                    <li id="menu-home ">
+                        <a href="#!adminPage ">
+                            <i class="fa fa-lg fa-suitcase "></i>
+                            <span>Tours</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!carPage ">
+                            <i class="fa fa-lg fa-car "></i>
+                            <span>Cars</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!employeePage ">
+                            <i class="fa fa-lg fa-users "></i>
+                            <span>Employees</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!tourFeedback ">
+                            <i class="fa fa-lg fa-comment-o"></i>
+                            <span>Tour Feedback</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!appFeedback ">
+                            <i class="fa fa-lg fa-comments-o"></i>
+                            <span>App Feedback</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!tourRequest ">
+                            <i class="fa fa-lg fa-suitcase "></i>
+                            <span>Tour Request</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix "> </div>
+    </div>
+</body>
+
+</html>

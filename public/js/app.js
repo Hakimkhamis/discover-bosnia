@@ -14,8 +14,9 @@ app.config(function ($routeProvider) {
         activeTab: "contact"
     })
 
-
 })
+
+
 
 app.controller('cityController', cityController)
 app.controller('linksController', linksController)
@@ -26,3 +27,12 @@ app.controller('newsController', newsController)
 app.controller('contactController', contactController)
 app.controller('specialoffersController', specialoffersController )
 app.controller("loginController", loginController);
+app.controller("registerController", registerController);
+
+
+
+
+
+
+
+
