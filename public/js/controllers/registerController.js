@@ -77,5 +77,3 @@ var registerController = function($scope, $uibModal, $http, $window, $location, 
 
 
 
-
-

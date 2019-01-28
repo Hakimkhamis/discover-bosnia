@@ -62,7 +62,7 @@ app.post("/login", function (req, res) {
 
 
 app.post("/register", function (req, res) {
-    db.collection("users").findOne({ "email": req.body.email, "password": req.body.password }, function (error, user) {
+    db.collection("user").inserOne({ "email": req.body.email, "password": req.body.password, "name": req.body.name }, function (error, user) {
         if (error) {
             throw error;
         } else {
@@ -79,6 +79,9 @@ app.post("/register", function (req, res) {
         }
     })
 });
+
+
+
 
 
 
