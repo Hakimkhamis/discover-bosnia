@@ -41,7 +41,7 @@ app.get("/specialoffers", function (req, res) {
 
 
 app.post("/login", function (req, res) {
-    db.collection("users").findOne({ "email": req.body.email, "password": req.body.password }, function (error, user) {
+    db.collection("users").findOne({ "password": req.body.password, "email": req.body.email, "password": req.body.password }, function (error, user) {
         if (error) {
             throw error;
         } else {
@@ -62,7 +62,7 @@ app.post("/login", function (req, res) {
 
 
 app.post("/register", function (req, res) {
-    db.collection("user").inserOne({ "email": req.body.email, "password": req.body.password, "name": req.body.name }, function (error, user) {
+    db.collection("user").inserOne({ "email": req.body.email, "password": req.body.password, "name_surname": req.body.name }, function (error, user) {
         if (error) {
             throw error;
         } else {

@@ -30,7 +30,7 @@ var registerController = function($scope, $uibModal, $http, $window, $location, 
       console.log(data.status);
       if(data.status == 204){
         toastr.error("Email already exists");
-      //  $scope.user.name = "";
+      $scope.user.name = "";
         $scope.users.email = "";
         //$scope.user.password = "";
        
